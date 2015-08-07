@@ -1,0 +1,27 @@
+{
+  "name": "ticketgenerator",
+  "version": "1.0.0",
+  "description": "Ticket generator tool with a QRCode included.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OscaRoa/TicketsGenerator.git"
+  },
+  "keywords": [
+    "ticket",
+    "pdf",
+    "QR"
+  ],
+  "author": "Oscar Roa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OscaRoa/TicketsGenerator/issues"
+  },
+  "homepage": "https://github.com/OscaRoa/TicketsGenerator#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

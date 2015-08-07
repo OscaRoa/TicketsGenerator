@@ -1,0 +1,21 @@
+{
+  "name": "TicketsGenerator",
+  "version": "1.0.0",
+  "homepage": "https://github.com/OscaRoa/TicketsGenerator",
+  "authors": [
+    "Oscar Roa <oshardy3@gmail.com>"
+  ],
+  "description": "Ticket generator tool.",
+  "main": "index.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "QR",
+    "ticket"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery-qrcode": "*"
+  }
+}
