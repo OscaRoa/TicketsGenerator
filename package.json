@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/OscaRoa/TicketsGenerator#readme",
   "dependencies": {
+    "body-parser": "^1.13.3",
     "express": "^4.13.3"
   }
 }

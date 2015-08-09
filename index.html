@@ -3,35 +3,34 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('#envio').click(function() {
-        //  Expresión regular para compararla con el correo del usuario.
-        var expr = new RegExp(/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/);
-        var nombre = $('#nombreApellido').val().trim();
-        var correo = $('#correo').val().trim();
-        var confCorreo = $('#repcorreo').val().trim();
-        var telefono = $('#telefono').val().trim();
-        var empresa = $('#empresa').val().trim();
-        var puesto = $('#puesto').val().trim();
-        var boletos = $('#boletos').val.trim();
-
-        if (correo == "" || !expr.test(correo)) {
-          alert("Tu correo es inválido.");
-          return false;
-        } else if (confCorreo != correo) {
-          alert("Tus correos no coinciden :( Revísalos.");
-          return false;
-        } else if (nombre.length == 0 || telefono.length == 0 || empresa.length == 0 || puesto.length == 0 || (boletos.length == 0  || boletos == 0)) {
-          alert("Necesitamos todos tus datos :( Escríbelos por favor.");
-          return false;
-        }
+      //  Expresión regular para compararla con el correo del usuario.
+      var expr = new RegExp(/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/);
+      var nombre = $('#nombreApellido').val().trim();
+      var correo = $('#correo').val().trim();
+      var confCorreo = $('#confcorreo').val().trim();
+      var telefono = $('#telefono').val().trim();
+      var empresa = $('#empresa').val().trim();
+      var puesto = $('#puesto').val().trim();
+      var boletos = $('#boletos').val().trim();
+      console.log(nombre);
+      if (correo == "" || !expr.test(correo)) {
+        alert("Tu correo es inválido.");
+        return false;
+      } else if (confCorreo != correo) {
+        alert("Tus correos no coinciden :( Revísalos.");
+        return false;
+      } else if (nombre.length == 0 || telefono.length == 0 || empresa.length == 0 || puesto.length == 0 || (boletos.length == 0 || boletos == 0)) {
+        alert("Necesitamos todos tus datos :( Escríbelos por favor.");
+        return false;
       }
     });
   });
 </script>
 <div id="contenedor">
-  <form id="campos" method="post" autocomplete="off">
+  <form id="campos" method="post" autocomplete="off" action="/tickets">
     <label>Nombre y apellido:</label>
     <br>
-    <input type="text" id="nombreApellido" required>
+    <input type="text" id="nombreApellido" name="nombre" required>
     <br>
     <label>Correo:</label>
     <br>
@@ -39,25 +38,27 @@
     <br>
     <label>Repite tu correo:</label>
     <br>
-    <input type="email" name="repetirCorreo" id="repcorreo" required>
+    <input type="email" id="confcorreo" required>
     <br>
     <label>Teléfono: </label>
     <br>
-    <input type="text" id="telefono" required>
+    <input type="text" id="telefono" name="telefono" required>
     <br>
     <label>Empresa:</label>
     <br>
-    <input type="text" id="empresa" required>
+    <input type="text" id="empresa" name="empresa" required>
     <br>
     <label>Puesto:</label>
     <br>
-    <input type="text" id="puesto" required>
+    <input type="text" id="puesto" name="puesto" required>
     <br>
     <label>Número de boletos:</label>
     <br>
-    <input type="text" id="boletos" required>
+    <input type="text" id="boletos" name="boletos" required>
     <br>
     <br>
-    <input type="submit" id="envio" value="Mis datos son correctos" action="/tickets">
+    <input type="submit" id="envio" value="Mis datos son correctos">
   </form>
+  <script src="static/js/jquery.qrcode.min.js" charset="utf-8"></script>
+  <script src="static/js/jspdf.min.js" charset="utf-8"></script>
 </div>
