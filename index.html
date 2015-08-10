@@ -1,5 +1,7 @@
 <meta charset="utf-8">
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="js/jquery.qrcode.min.js" charset="utf-8"></script>
+<script src="js/jspdf.min.js" charset="utf-8"></script>
 <script type="text/javascript">
   $(document).ready(function() {
     $('#envio').click(function() {
@@ -12,7 +14,7 @@
       var empresa = $('#empresa').val().trim();
       var puesto = $('#puesto').val().trim();
       var boletos = $('#boletos').val().trim();
-      
+
       if (correo == "" || !expr.test(correo)) {
         alert("Tu correo es inválido.");
         return false;
@@ -23,6 +25,8 @@
         alert("Necesitamos todos tus datos :( Escríbelos por favor.");
         return false;
       }
+
+      $('#qrcode').qrcode("Nombre: " + nombre + '\n' + "Boletos: " + boletos);
     });
   });
 </script>
@@ -58,11 +62,13 @@
     <br>
     <br>
     <input type="submit" id="envio" value="Mis datos son correctos">
+    <input type="button" id="pdf" value="Generar Boleto.">
   </form>
-  <script src="js/jquery.qrcode.min.js" charset="utf-8"></script>
-  <script src="js/jspdf.min.js" charset="utf-8"></script>
+  <div id="qrcode">
+
+  </div>
   <script type="text/javascript">
-    $('#envio').click(function () {
+    $('#pdf').click(function() {
       var datos = {
         nombre: $('#nombreApellido').val().trim(),
         correo: $('#correo').val().trim(),
