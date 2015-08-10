@@ -12,7 +12,7 @@
       var empresa = $('#empresa').val().trim();
       var puesto = $('#puesto').val().trim();
       var boletos = $('#boletos').val().trim();
-      console.log(nombre);
+      
       if (correo == "" || !expr.test(correo)) {
         alert("Tu correo es inválido.");
         return false;
@@ -61,4 +61,26 @@
   </form>
   <script src="js/jquery.qrcode.min.js" charset="utf-8"></script>
   <script src="js/jspdf.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $('#envio').click(function () {
+      var datos = {
+        nombre: $('#nombreApellido').val().trim(),
+        correo: $('#correo').val().trim(),
+        telefono: $('#telefono').val().trim(),
+        empresa: $('#empresa').val().trim(),
+        puesto: $('#puesto').val().trim(),
+        boletos: $('#boletos').val().trim(),
+      }
+      var ticket = new jsPDF();
+
+      ticket.setFontSize(20);
+      ticket.text(30, 20, "Nombre: " + datos.nombre);
+      ticket.text(30, 35, "Correo: " + datos.correo);
+      ticket.text(30, 50, "Teléfono: " + datos.telefono);
+      ticket.text(30, 65, "Empresa: " + datos.empresa);
+      ticket.text(30, 80, "Puesto: " + datos.puesto);
+      ticket.text(30, 95, "Boletos: " + datos.boletos);
+      ticket.save('Ticket.pdf');
+    })
+  </script>
 </div>
