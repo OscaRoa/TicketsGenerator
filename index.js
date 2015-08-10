@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/tickets', function (req, res) {
+app.post('/confirmacion', function (req, res) {
   var nombre = req.body;
   console.log(nombre);
 });
