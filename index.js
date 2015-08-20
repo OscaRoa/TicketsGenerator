@@ -10,11 +10,6 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/confirmacion', function (req, res) {
-  var nombre = req.body;
-  console.log(nombre);
-});
-
 app.listen(puerto, function () {
   console.log('Port on ' + puerto);
 });

@@ -77,7 +77,7 @@
         puesto: $('#puesto').val().trim(),
         boletos: $('#boletos').val().trim(),
       }
-      var ticket = new jsPDF();
+      var ticket = new jsPDF('p', 'pt', 'a4');
 
       ticket.setFontSize(20);
       ticket.text(30, 20, "Nombre: " + datos.nombre);
@@ -86,7 +86,7 @@
       ticket.text(30, 65, "Empresa: " + datos.empresa);
       ticket.text(30, 80, "Puesto: " + datos.puesto);
       ticket.text(30, 95, "Boletos: " + datos.boletos);
-      ticket.save('Ticket.pdf');
-    })
+      ticket.save("Ticket.pdf");
+    });
   </script>
 </div>
